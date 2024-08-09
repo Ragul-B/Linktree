@@ -1,69 +1,80 @@
-// Function to open the modal for adding a link
+// Open and close modals
 function openAddLinkModal() {
     document.getElementById('addLinkModal').style.display = 'flex';
 }
 
-// Function to open the modal for updating profile
 function openProfileModal() {
     document.getElementById('profileModal').style.display = 'flex';
 }
 
-// Function to close the modal
 function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
 
-// Function to add a new link
+// Add link to links container
 function addLink() {
-    const linkName = document.getElementById('linkName').value;
-    const linkUrl = document.getElementById('linkUrl').value;
+    const name = document.getElementById('linkName').value;
+    const url = document.getElementById('linkUrl').value;
 
-    if (linkName && linkUrl) {
-        const linksContainer = document.getElementById('links');
-        const newLink = document.createElement('a');
-        newLink.href = linkUrl;
-        newLink.target = '_blank';
-        newLink.className = 'link';
-        newLink.textContent = linkName;
-        linksContainer.appendChild(newLink);
+    if (name && url) {
+        const linkContainer = document.getElementById('links');
+        const linkElement = document.createElement('a');
+        linkElement.href = url;
+        linkElement.className = 'link';
+        linkElement.textContent = name;
+        linkElement.target = '_blank'; // Open in new tab
+        linkContainer.appendChild(linkElement);
 
+        // Clear the input fields and close the modal
         document.getElementById('linkName').value = '';
         document.getElementById('linkUrl').value = '';
         closeModal('addLinkModal');
     } else {
-        alert('Please provide both link name and URL.');
+        alert('Please provide both name and URL.');
     }
 }
 
-// Function to update the profile
+// Update profile information
 function updateProfile() {
-    const profileName = document.getElementById('profileNameInput').value;
-    const profileBio = document.getElementById('profileBioInput').value;
+    const name = document.getElementById('profileNameInput').value;
+    const bio = document.getElementById('profileBioInput').value;
 
-    if (profileName && profileBio) {
-        document.getElementById('profileName').textContent = profileName;
-        document.getElementById('profileBio').textContent = profileBio;
-        
-        // Hide the profile modal
+    if (name || bio) {
+        document.getElementById('profileName').textContent = name || document.getElementById('profileName').textContent;
+        document.getElementById('profileBio').textContent = bio || document.getElementById('profileBio').textContent;
+
+        // Hide the profile modal and show profile picture if uploaded
         closeModal('profileModal');
+        document.querySelector('.profile-button').style.display = 'none';
     } else {
-        alert('Please provide both name and bio.');
+        alert('Please provide at least a name or bio.');
     }
 }
 
-// Function to handle profile image upload
+// Handle profile image upload
 function uploadProfileImage() {
     const fileInput = document.getElementById('profileUploader');
     const file = fileInput.files[0];
 
     if (file) {
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = function(event) {
             const profilePic = document.getElementById('profilePic');
-            profilePic.src = e.target.result;
+            profilePic.src = event.target.result;
             profilePic.classList.remove('hidden');
-            document.querySelector('.profile-button').style.display = 'none';
         };
         reader.readAsDataURL(file);
+
+        // Hide the profile button after the profile image is added
+        document.querySelector('.profile-button').style.display = 'none';
     }
 }
+
+// Open profile modal initially
+document.querySelector('.profile-button').addEventListener('click', openProfileModal);
+
+// Handle scrolling for large lists of links
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.overflowY = 'auto';
+});
+    
