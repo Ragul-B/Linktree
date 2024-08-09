@@ -26,13 +26,16 @@
         </div>
     </div>
 
-    <!-- Rounded '+' Button -->
-    <button class="add-button" onclick="openModal()">+</button>
+    <!-- Add Link Button -->
+    <button class="add-button" onclick="openAddLinkModal()">+</button>
+
+    <!-- Add Profile Button -->
+    <button class="profile-button" onclick="openProfileModal()">+</button>
 
     <!-- Modal for Adding Link -->
     <div id="addLinkModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeModal('addLinkModal')">&times;</span>
             <h2>Add a New Link</h2>
             <input type="text" id="linkName" placeholder="Enter link name">
             <input type="text" id="linkUrl" placeholder="Enter link URL">
@@ -40,8 +43,18 @@
         </div>
     </div>
 
-    <!-- Profile Button -->
-    <button class="profile-button" onclick="document.getElementById('profileUploader').click()">+</button>
+    <!-- Modal for Adding Profile Details -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('profileModal')">&times;</span>
+            <h2>Update Profile</h2>
+            <input type="text" id="profileNameInput" placeholder="Enter your name">
+            <input type="text" id="profileBioInput" placeholder="Enter your bio">
+            <button class="modal-button" onclick="updateProfile()">Update Profile</button>
+        </div>
+    </div>
+
+    <!-- Profile Image Upload -->
     <input type="file" id="profileUploader" accept="image/*" style="display: none;" onchange="uploadProfileImage()" />
 
     <script src="script.js"></script>
