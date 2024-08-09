@@ -23,13 +23,14 @@ body {
 
 /* Container (Glassmorphism Effect) */
 .container {
-    background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 90%;
     max-width: 350px;
+    backdrop-filter: blur(10px); /* Glassmorphism */
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -58,7 +59,7 @@ body {
 
 h1, p {
     margin: 0;
-    color: #333333;
+    color: #ffffff; /* Text color for readability */
 }
 
 h1 {
@@ -122,14 +123,14 @@ button:hover {
     border: none;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.2);
-    color: #333;
+    color: #000; /* Input text color */
     box-shadow: inset 4px 4px 8px #bfbfbf, inset -4px -4px 8px #ffffff;
     font-size: 16px;
     outline: none;
     transition: background 0.3s ease, box-shadow 0.3s ease;
+}
 
-
-    .modal-content input:focus {
+.modal-content input:focus {
     background: rgba(255, 255, 255, 0.3);
     box-shadow: inset 4px 4px 8px #bfbfbf, inset -4px -4px 8px #ffffff;
 }
@@ -151,7 +152,7 @@ button:hover {
 
 /* Modal Content */
 .modal-content {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.9); /* Glassmorphism effect */
     margin: 15% auto;
     padding: 20px;
     border-radius: 12px;
@@ -177,7 +178,7 @@ button:hover {
     padding: 12px;
     margin: 10px 0;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
     color: #0073e6;
     text-decoration: none;
     font-size: 18px;
@@ -187,16 +188,6 @@ button:hover {
 .link:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
-}
-
-/* Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 /* Additional Button Styling */
@@ -249,4 +240,14 @@ button:hover {
         font-size: 30px;
         line-height: 50px;
     }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
+    to {
+        opacity: 1;
+    }
+}
