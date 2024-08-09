@@ -42,6 +42,8 @@ function uploadProfileImage() {
         const reader = new FileReader();
         reader.onload = function(e) {
             document.getElementById('profilePic').src = e.target.result;
+            // Hide the profile button after image is uploaded
+            document.querySelector('.profile-button').style.display = 'none';
         };
         reader.readAsDataURL(file);
     }
