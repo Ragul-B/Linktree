@@ -1,8 +1,19 @@
-function addLink() {
-    const url = prompt("Enter the URL:");
-    const name = prompt("Enter the name for this link:");
+// Function to open the modal
+function openModal() {
+    document.getElementById("addLinkModal").style.display = "flex";
+}
 
-    if (url && name) {
+// Function to close the modal
+function closeModal() {
+    document.getElementById("addLinkModal").style.display = "none";
+}
+
+// Function to add a new link
+function addLink() {
+    const name = document.getElementById("linkName").value;
+    const url = document.getElementById("linkUrl").value;
+
+    if (name && url) {
         const newLink = document.createElement("a");
         newLink.href = url;
         newLink.textContent = name;
@@ -13,7 +24,12 @@ function addLink() {
         newLink.style.animation = "popUp 0.5s ease";
 
         document.getElementById("links").appendChild(newLink);
+
+        // Clear input fields and close the modal
+        document.getElementById("linkName").value = "";
+        document.getElementById("linkUrl").value = "";
+        closeModal();
     } else {
-        alert("URL and name are required!");
+        alert("Both name and URL are required!");
     }
 }
