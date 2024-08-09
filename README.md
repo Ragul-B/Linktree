@@ -20,7 +20,7 @@ This project allows users to manage their profile and links on a single page. Us
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/profile-links-management.git
+git clone https://github.com/Ragul-B/Linktree.git
 
 cd profile-links-management2.
 
