@@ -47,10 +47,10 @@
     <button class="add-button" onclick="openAddLinkModal()">+</button>
     <button class="profile-button" onclick="openProfileModal()">📷</button>
 
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
-    <script src="particles.min.js"></script>
     <script>
-        // Initialize particles.js
+    document.addEventListener('DOMContentLoaded', () => {
         particlesJS('particles-js', {
             "particles": {
                 "number": {
@@ -131,6 +131,7 @@
             },
             "retina_detect": true
         });
+    });
     </script>
 </body>
 </html>
