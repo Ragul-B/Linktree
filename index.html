@@ -15,8 +15,6 @@
             <img src="default-profile.jpg" alt="Profile Picture" class="profile-pic" id="profilePic">
             <h1>Your Name</h1>
             <p>Your bio or a short description goes here.</p>
-            <input type="file" id="profileUploader" accept="image/*" onchange="uploadProfileImage()" />
-            <button class="add-profile-button" onclick="document.getElementById('profileUploader').click()">Add Profile Image</button>
         </div>
         <div class="links" id="links">
             <a href="https://www.instagram.com" target="_blank" class="link">Instagram</a>
@@ -40,6 +38,10 @@
             <button onclick="addLink()">Add Link</button>
         </div>
     </div>
+
+    <!-- Profile Button -->
+    <button class="profile-button" onclick="document.getElementById('profileUploader').click()">Add Profile Image</button>
+    <input type="file" id="profileUploader" accept="image/*" style="display: none;" onchange="uploadProfileImage()" />
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
