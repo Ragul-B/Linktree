@@ -72,52 +72,32 @@ p {
     margin-bottom: 20px;
 }
 
-/* Neumorphism Style for Buttons */
-button {
-    background: #e0e0e0;
-    border: none;
-    border-radius: 12px;
-    box-shadow: 8px 8px 16px #bfbfbf, -8px -8px 16px #ffffff;
-    color: #333;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 10px 20px;
-    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-    background: #d0d0d0;
-    box-shadow: 6px 6px 12px #bfbfbf, -6px -6px 12px #ffffff;
-    transform: scale(1.05);
-}
-
-/* Add Button Styling */
+/* Neumorphism Style for Add Link Button */
 .add-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     font-size: 36px;
-    line-height: 60px;
+    line-height: 70px;
     text-align: center;
     color: #ffffff;
     background: #0073e6;
     border: none;
     cursor: pointer;
-    box-shadow: 6px 6px 12px #bfbfbf, -6px -6px 12px #ffffff;
+    box-shadow: 10px 10px 20px #bfbfbf, -10px -10px 20px #ffffff;
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Add Button Styling (continued) */
 .add-button:hover {
     background: #005bb5;
-    box-shadow: 4px 4px 8px #bfbfbf, -4px -4px 8px #ffffff;
+    box-shadow: 8px 8px 16px #bfbfbf, -8px -8px 16px #ffffff;
     transform: scale(1.1);
 }
 
-/* Profile Button Styling */
+/* Neumorphism Style for Profile Button */
 .profile-button {
     position: fixed;
     top: 10px;
@@ -206,6 +186,26 @@ button:hover {
     font-size: 24px;
     cursor: pointer;
     color: #000;
+}
+
+/* Link Buttons with 3D Effect */
+.link {
+    display: block;
+    margin: 10px 0;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #ffffff;
+    background: #0073e6;
+    box-shadow: 4px 4px 8px #bfbfbf, -4px -4px 8px #ffffff;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    font-size: 16px;
+}
+
+.link:hover {
+    background: #005bb5;
+    box-shadow: 2px 2px 4px #bfbfbf, -2px -2px 4px #ffffff;
+    transform: scale(1.05);
 }
 
 /* Fade-in Animation */
