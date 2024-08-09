@@ -148,6 +148,16 @@ p {
     position: relative;
 }
 
+/* Modal Close Button */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
 /* Modal Input Fields */
 .modal-content input {
     width: calc(100% - 20px);
@@ -164,63 +174,80 @@ p {
     color: #666;
 }
 
-.modal-content .modal-button {
+/* File Upload Button */
+.upload-label {
+    display: inline-block;
     background: #0073e6;
     color: #ffffff;
     padding: 10px 20px;
-    border: none;
     border-radius: 12px;
     cursor: pointer;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.2);
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    text-align: center;
 }
 
-/* Modal Button Hover Effect */
-.modal-content .modal-button:hover {
+.upload-label:hover {
     background: #005bb5;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
 }
 
-/* Link Removal Button Styling */
-.link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 0;
-    padding: 15px 25px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: #ffffff;
+/* Modal Button */
+.modal-button {
     background: #0073e6;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.2);
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    font-size: 16px;
-    position: relative;
 }
 
-.link:hover {
+.modal-button:hover {
     background: #005bb5;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
 }
 
-.link .remove-button {
-    background: #ff4d4d;
-    color: #ffffff;
-    border: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
+/* Link Styling */
+.link-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #333;
 }
 
-.link .remove-button:hover {
-    background: #cc0000;
-    transform: scale(1.1);
+.link-item a {
+    text-decoration: none;
+    color: #0073e6;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.link-item a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
 }
