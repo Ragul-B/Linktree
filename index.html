@@ -8,8 +8,6 @@
 </head>
 <body>
     <div class="container">
-        <div class="profile">
-            <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
             <h1>Your Name</h1>
             <p>Your bio or a short description goes here.</p>
         </div>
@@ -23,7 +21,18 @@
     </div>
 
     <!-- Rounded '+' Button with Animation -->
-    <button class="add-button" onclick="addLink()">+</button>
+    <button class="add-button" onclick="openModal()">+</button>
+
+    <!-- Modal for Adding Link -->
+    <div id="addLinkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add a New Link</h2>
+            <input type="text" id="linkName" placeholder="Enter link name">
+            <input type="text" id="linkUrl" placeholder="Enter link URL">
+            <button onclick="addLink()">Add Link</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
