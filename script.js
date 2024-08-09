@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', function () {
+    loadLinks();
+    loadProfile();
+});
+
 // Initialize particles.js
 particlesJS('particles-js', {
     "particles": {
@@ -128,12 +133,16 @@ function addLink() {
             <span class="link-close" onclick="removeLink(this)">&times;</span>
         `;
         linkContainer.appendChild(linkElement);
+
+        saveLink(linkName, linkUrl);
         closeModal('addLinkModal');
     }
 }
 
 function removeLink(button) {
+    const linkContainer = document.getElementById('links');
     button.parentElement.remove();
+    saveLinks(); // Save the updated list after removal
 }
 
 function updateProfile() {
@@ -143,6 +152,7 @@ function updateProfile() {
     if (profileName || profileBio) {
         document.getElementById('profileName').textContent = profileName;
         document.getElementById('profileBio').textContent = profileBio;
+        saveProfile();
         closeModal('profileModal');
     }
 }
@@ -158,3 +168,45 @@ function uploadProfileImage() {
         reader.readAsDataURL(file);
     }
 }
+
+function saveLink(name, url) {
+    let links = JSON.parse(localStorage.getItem('links')) || [];
+    links.push({ name, url });
+    localStorage.setItem('links', JSON.stringify(links));
+}
+
+function saveLinks() {
+    const linkContainer = document.getElementById('links');
+    const links = Array.from(linkContainer.getElementsByClassName('link-item')).map(linkItem => {
+        const a = linkItem.querySelector('a');
+        return { name: a.textContent, url: a.href };
+    });
+    localStorage.setItem('links', JSON.stringify(links));
+}
+
+function loadLinks() {
+    const links = JSON.parse(localStorage.getItem('links')) || [];
+    const linkContainer = document.getElementById('links');
+    links.forEach(link => {
+        const linkElement = document.createElement('div');
+        linkElement.className = 'link-item';
+        linkElement.innerHTML = `
+            <a href="${link.url}" target="_blank">${link.name}</a>
+            <span class="link-close" onclick="removeLink(this)">&times;</span>
+        `;
+        linkContainer.appendChild(linkElement);
+    });
+}
+
+function saveProfile() {
+    const profileName = document.getElementById('profileNameInput').value;
+    const profileBio = document.getElementById('profileBioInput').value;
+    localStorage.setItem('profile', JSON.stringify({ name: profileName, bio: profileBio }));
+}
+
+function loadProfile() {
+    const profile = JSON.parse(localStorage.getItem('profile')) || { name: '', bio: '' };
+    document.getElementById('profileName').textContent = profile.name;
+    document.getElementById('profileBio').textContent = profile.bio;
+    // Optionally handle profile image here
+    }
