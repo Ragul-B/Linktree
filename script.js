@@ -1,36 +1,53 @@
-// Function to open the modal
-function openModal() {
-    document.getElementById("addLinkModal").style.display = "flex";
+// Function to open the modal for adding a link
+function openAddLinkModal() {
+    document.getElementById('addLinkModal').style.display = 'flex';
+}
+
+// Function to open the modal for updating profile
+function openProfileModal() {
+    document.getElementById('profileModal').style.display = 'flex';
 }
 
 // Function to close the modal
-function closeModal() {
-    document.getElementById("addLinkModal").style.display = "none";
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
 }
 
 // Function to add a new link
 function addLink() {
-    const name = document.getElementById("linkName").value;
-    const url = document.getElementById("linkUrl").value;
+    const linkName = document.getElementById('linkName').value;
+    const linkUrl = document.getElementById('linkUrl').value;
 
-    if (name && url) {
-        const newLink = document.createElement("a");
-        newLink.href = url;
-        newLink.textContent = name;
-        newLink.target = "_blank";
-        newLink.className = "link";
+    if (linkName && linkUrl) {
+        const linksContainer = document.getElementById('links');
+        const newLink = document.createElement('a');
+        newLink.href = linkUrl;
+        newLink.target = '_blank';
+        newLink.className = 'link';
+        newLink.textContent = linkName;
+        linksContainer.appendChild(newLink);
 
-        // Adding a pop-up animation effect for the new link
-        newLink.style.animation = "popUp 0.5s ease";
-
-        document.getElementById("links").appendChild(newLink);
-
-        // Clear input fields and close the modal
-        document.getElementById("linkName").value = "";
-        document.getElementById("linkUrl").value = "";
-        closeModal();
+        document.getElementById('linkName').value = '';
+        document.getElementById('linkUrl').value = '';
+        closeModal('addLinkModal');
     } else {
-        alert("Both name and URL are required!");
+        alert('Please provide both link name and URL.');
+    }
+}
+
+// Function to update the profile
+function updateProfile() {
+    const profileName = document.getElementById('profileNameInput').value;
+    const profileBio = document.getElementById('profileBioInput').value;
+
+    if (profileName && profileBio) {
+        document.getElementById('profileName').textContent = profileName;
+        document.getElementById('profileBio').textContent = profileBio;
+        
+        // Hide the profile modal
+        closeModal('profileModal');
+    } else {
+        alert('Please provide both name and bio.');
     }
 }
 
@@ -38,12 +55,14 @@ function addLink() {
 function uploadProfileImage() {
     const fileInput = document.getElementById('profileUploader');
     const file = fileInput.files[0];
+
     if (file) {
         const reader = new FileReader();
         reader.onload = function(e) {
             const profilePic = document.getElementById('profilePic');
             profilePic.src = e.target.result;
-            profilePic.classList.remove('hidden'); // Show profile picture
+            profilePic.classList.remove('hidden');
+            document.querySelector('.profile-button').style.display = 'none';
         };
         reader.readAsDataURL(file);
     }
