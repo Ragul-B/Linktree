@@ -91,130 +91,6 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Profile Button */
-.profile-button {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    background: #e0e0e0;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    line-height: 50px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 6px 6px 12px #bfbfbf, -6px -6px 12px #ffffff;
-    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.profile-button:hover {
-    background: #d0d0d0;
-    box-shadow: 4px 4px 8px #bfbfbf, -4px -4px 8px #ffffff;
-    transform: scale(1.1);
-}
-
-/* Input Fields for Modal */
-.modal-content input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #000; /* Input text color */
-    box-shadow: inset 4px 4px 8px #bfbfbf, inset -4px -4px 8px #ffffff;
-    font-size: 16px;
-    outline: none;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.modal-content input:focus {
-    background: rgba(255, 255, 255, 0.3);
-    box-shadow: inset 4px 4px 8px #bfbfbf, inset -4px -4px 8px #ffffff;
-}
-
-/* Modal Styling */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    justify-content: center;
-    align-items: center;
-}
-
-/* Modal Content */
-.modal-content {
-    background: rgba(255, 255, 255, 0.9); /* Glassmorphism effect */
-    margin: 15% auto;
-    padding: 20px;
-    border-radius: 12px;
-    width: 80%;
-    max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px); /* Glassmorphism */
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Close Button */
-.close {
-    color: #333;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-/* Modal Button */
-.modal-button {
-    background: #0073e6;
-    color: #ffffff;
-    border: none;
-    border-radius: 12px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 6px 6px 12px #bfbfbf, -6px -6px 12px #ffffff;
-    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.modal-button:hover {
-    background: #005bb5;
-    box-shadow: 4px 4px 8px #bfbfbf, -4px -4px 8px #ffffff;
-    transform: scale(1.05);
-}
-
-/* Link Section with Scroll Effect */
-.links {
-    max-height: 400px; /* Adjust as needed */
-    overflow-y: auto;
-    padding: 10px;
-}
-
-.link {
-    display: block;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
-    color: #0073e6;
-    text-decoration: none;
-    font-size: 18px;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.link:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-}
-
 /* Add Button Styling */
 .add-button {
     position: fixed;
@@ -234,45 +110,112 @@ button:hover {
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* Add Button Styling (continued) */
 .add-button:hover {
     background: #005bb5;
     box-shadow: 4px 4px 8px #bfbfbf, -4px -4px 8px #ffffff;
     transform: scale(1.1);
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-    .container {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .profile-pic {
-        width: 100px;
-        height: 100px;
-    }
-
-    .profile-button {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-        line-height: 40px;
-    }
-
-    .add-button {
-        width: 50px;
-        height: 50px;
-        font-size: 30px;
-        line-height: 50px;
-    }
+/* Profile Button Styling */
+.profile-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: #0073e6;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 50px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #bfbfbf, -6px -6px 12px #ffffff;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Animation */
+.profile-button:hover {
+    background: #005bb5;
+    box-shadow: 4px 4px 8px #bfbfbf, -4px -4px 8px #ffffff;
+    transform: scale(1.1);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.9); /* Glassmorphism effect */
+    border-radius: 12px;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.modal-content input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #000; /* Input text color */
+    box-shadow: inset 4px 4px 8px #bfbfbf, inset -4px -4px 8px #ffffff;
+}
+
+.modal-content input::placeholder {
+    color: #666; /* Placeholder text color */
+}
+
+.modal-content .modal-button {
+    background: #0073e6;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #bfbfbf, -6px -6px 12px #ffffff;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.modal-content .modal-button:hover {
+    background: #005bb5;
+    box-shadow: 4px 4px 8px #bfbfbf, -4px -4px 8px #ffffff;
+    transform: scale(1.05);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000;
+}
+
+/* Fade-in Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(-20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
-        }
+    }
