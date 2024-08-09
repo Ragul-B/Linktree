@@ -33,3 +33,16 @@ function addLink() {
         alert("Both name and URL are required!");
     }
 }
+
+// Function to handle profile image upload
+function uploadProfileImage() {
+    const fileInput = document.getElementById('profileUploader');
+    const file = fileInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('profilePic').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
