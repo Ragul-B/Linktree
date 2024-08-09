@@ -24,7 +24,7 @@
     <!-- Modal for Adding Link -->
     <div id="addLinkModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('addLinkModal')">&times;</span>
+            <span class="modal-close" onclick="closeModal('addLinkModal')">&times;</span>
             <h2>Add New Link</h2>
             <input type="text" id="linkName" placeholder="Link Name">
             <input type="url" id="linkUrl" placeholder="Link URL">
@@ -35,11 +35,12 @@
     <!-- Modal for Updating Profile -->
     <div id="profileModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('profileModal')">&times;</span>
+            <span class="modal-close" onclick="closeModal('profileModal')">&times;</span>
             <h2>Update Profile</h2>
             <input type="text" id="profileNameInput" placeholder="Name">
             <input type="text" id="profileBioInput" placeholder="Bio">
             <input type="file" id="profileUploader" accept="image/*" onchange="uploadProfileImage()">
+            <label for="profileUploader" class="upload-label">Upload Image</label>
             <button class="modal-button" onclick="updateProfile()">Update Profile</button>
         </div>
     </div>
@@ -49,89 +50,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    }
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false,
-                    "anim": {
-                        "enable": false,
-                        "speed": 1,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                    "anim": {
-                        "enable": false,
-                        "speed": 40,
-                        "size_min": 0.1,
-                        "sync": false
-                    }
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                }
-            },
-            "retina_detect": true
-        });
-    });
-    </script>
 </body>
 </html>
