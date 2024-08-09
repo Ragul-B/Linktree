@@ -7,8 +7,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow-y: auto; /* Allow vertical scrolling */
-    background: #000; /* Fallback color for particles */
+    overflow-y: auto;
+    background: #000;
 }
 
 /* Particles Background */
@@ -23,14 +23,14 @@ body {
 
 /* Container (Glassmorphism Effect) */
 .container {
-    background: rgba(255, 255, 255, 0.2); /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.2);
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 90%;
     max-width: 350px;
-    backdrop-filter: blur(10px); /* Glassmorphism */
+    backdrop-filter: blur(10px);
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -59,7 +59,7 @@ body {
 
 h1, p {
     margin: 0;
-    color: #ffffff; /* Text color for readability */
+    color: #ffffff;
 }
 
 h1 {
@@ -107,7 +107,7 @@ p {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 50px;
     text-align: center;
     color: #ffffff;
@@ -122,7 +122,7 @@ p {
     transform: scale(1.1);
 }
 
- /* Modal Styling */
+/* Modal Styling */
 .modal {
     display: none;
     position: fixed;
@@ -137,7 +137,7 @@ p {
 }
 
 .modal-content {
-    background: rgba(255, 255, 255, 0.9); /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 12px;
     padding: 20px;
     width: 80%;
@@ -156,12 +156,12 @@ p {
     border: none;
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.2);
-    color: #000; /* Input text color */
+    color: #000;
     box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.2);
 }
 
 .modal-content input::placeholder {
-    color: #666; /* Placeholder text color */
+    color: #666;
 }
 
 .modal-content .modal-button {
@@ -175,24 +175,18 @@ p {
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* Modal Button Hover Effect */
 .modal-content .modal-button:hover {
     background: #005bb5;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
 }
 
-.close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #000;
-}
-
-/* Link Buttons with 3D Effect */
+/* Link Removal Button Styling */
 .link {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 10px 0;
     padding: 15px 25px;
     border-radius: 12px;
@@ -202,6 +196,7 @@ p {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     font-size: 16px;
+    position: relative;
 }
 
 .link:hover {
@@ -210,40 +205,22 @@ p {
     transform: scale(1.05);
 }
 
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* File Upload Button Styling */
-input[type="file"] {
-    border: none;
-    background: #0073e6;
-    color: #ffffff;
-    padding: 10px;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.2);
-    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-input[type="file"]::-webkit-file-upload-button {
-    background: #0073e6;
+.link .remove-button {
+    background: #ff4d4d;
     color: #ffffff;
     border: none;
-    border-radius: 12px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-input[type="file"]:hover {
-    background: #005bb5;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-    }
+.link .remove-button:hover {
+    background: #cc0000;
+    transform: scale(1.1);
+}
