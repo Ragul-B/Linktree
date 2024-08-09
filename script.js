@@ -11,19 +11,23 @@ function closeModal(modalId) {
     document.getElementById(modalId).style.display = 'none';
 }
 
-// Add link to links container
+// Add link to links container and save to local storage
 function addLink() {
     const name = document.getElementById('linkName').value;
     const url = document.getElementById('linkUrl').value;
 
     if (name && url) {
         const linkContainer = document.getElementById('links');
-        const linkElement = document.createElement('a');
-        linkElement.href = url;
+        const linkElement = document.createElement('div');
         linkElement.className = 'link';
-        linkElement.textContent = name;
-        linkElement.target = '_blank'; // Open in new tab
+        linkElement.innerHTML = `
+            <a href="${url}" target="_blank">${name}</a>
+            <button class="remove-button" onclick="removeLink(this)">X</button>
+        `;
         linkContainer.appendChild(linkElement);
+
+        // Save to local storage
+        saveLinks();
 
         // Clear the input fields and close the modal
         document.getElementById('linkName').value = '';
@@ -32,6 +36,40 @@ function addLink() {
     } else {
         alert('Please provide both name and URL.');
     }
+}
+
+// Remove link and update local storage
+function removeLink(button) {
+    button.parentElement.remove();
+    saveLinks();
+}
+
+// Save links to local storage
+function saveLinks() {
+    const links = [];
+    document.querySelectorAll('#links .link').forEach(link => {
+        const a = link.querySelector('a');
+        links.push({
+            name: a.textContent,
+            url: a.href
+        });
+    });
+    localStorage.setItem('links', JSON.stringify(links));
+}
+
+// Load links from local storage
+function loadLinks() {
+    const links = JSON.parse(localStorage.getItem('links')) || [];
+    const linkContainer = document.getElementById('links');
+    links.forEach(link => {
+        const linkElement = document.createElement('div');
+        linkElement.className = 'link';
+        linkElement.innerHTML = `
+            <a href="${link.url}" target="_blank">${link.name}</a>
+            <button class="remove-button" onclick="removeLink(this)">X</button>
+        `;
+        linkContainer.appendChild(linkElement);
+    });
 }
 
 // Update profile information
@@ -70,10 +108,89 @@ function uploadProfileImage() {
     }
 }
 
-// Open profile modal initially
-document.querySelector('.profile-button').addEventListener('click', openProfileModal);
-
-// Handle scrolling for large lists of links
+// Initialize particles.js
 document.addEventListener('DOMContentLoaded', () => {
-    document.body.style.overflowY = 'auto';
+    particlesJS('particles-js', {
+        "particles": {
+            "number": {
+                "value": 80,
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff"
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+                "polygon": {
+                    "nb_sides": 5
+                }
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                    "enable": false,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": false,
+                    "speed": 40,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 6,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false,
+                    "rotateX": 600,
+                    "rotateY": 1200
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                },
+                "resize": true
+            }
+        },
+        "retina_detect": true
+    });
+
+    // Load existing links
+    loadLinks();
 });
