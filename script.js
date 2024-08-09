@@ -44,8 +44,6 @@ function uploadProfileImage() {
             const profilePic = document.getElementById('profilePic');
             profilePic.src = e.target.result;
             profilePic.classList.remove('hidden'); // Show profile picture
-            // Hide the profile button after image is uploaded
-            document.querySelector('.profile-button').style.display = 'none';
         };
         reader.readAsDataURL(file);
     }
