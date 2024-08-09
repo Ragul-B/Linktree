@@ -100,8 +100,8 @@ p {
 /* Neumorphism Style for Profile Button */
 .profile-button {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     background: #0073e6;
     border: none;
     border-radius: 50%;
@@ -122,7 +122,7 @@ p {
     transform: scale(1.1);
 }
 
-/* Modal Styling */
+ /* Modal Styling */
 .modal {
     display: none;
     position: fixed;
@@ -145,8 +145,10 @@ p {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     animation: fadeIn 0.5s ease-in-out;
+    position: relative;
 }
 
+/* Modal Input Fields */
 .modal-content input {
     width: calc(100% - 20px);
     padding: 10px;
@@ -218,4 +220,30 @@ p {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* File Upload Button Styling */
+input[type="file"] {
+    border: none;
+    background: #0073e6;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: #0073e6;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    background: #005bb5;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
     }
