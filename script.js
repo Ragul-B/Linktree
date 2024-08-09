@@ -77,4 +77,3 @@ document.querySelector('.profile-button').addEventListener('click', openProfileM
 document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflowY = 'auto';
 });
-    
