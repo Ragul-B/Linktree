@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile and Links</title>
+    <title>Linktree-Alike</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="particles-js"></div>
 
-    <!-- Glassmorphism card container, hidden initially -->
-    <div id="profileCard" class="container hidden">
+    <div class="container">
         <div class="profile">
             <img id="profilePic" class="profile-pic hidden" src="" alt="Profile Picture">
             <h1 id="profileName">Your Name</h1>
@@ -25,7 +24,7 @@
     <!-- Modal for Adding Link -->
     <div id="addLinkModal" class="modal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('addLinkModal')">&times;</span>
+            <span class="modal-close" onclick="closeModal('addLinkModal')">×</span>
             <h2>Add New Link</h2>
             <input type="text" id="linkName" placeholder="Link Name">
             <input type="url" id="linkUrl" placeholder="Link URL">
@@ -36,18 +35,18 @@
     <!-- Modal for Updating Profile -->
     <div id="profileModal" class="modal">
         <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('profileModal')">&times;</span>
+            <span class="modal-close" onclick="closeModal('profileModal')">×</span>
             <h2>Update Profile</h2>
             <input type="text" id="profileNameInput" placeholder="Name">
             <input type="text" id="profileBioInput" placeholder="Bio">
             <input type="file" id="profileUploader" accept="image/*" onchange="uploadProfileImage()">
-            <label for="profileUploader" class="upload-label">Upload Image</label>
+    
             <button class="modal-button" onclick="updateProfile()">Update Profile</button>
         </div>
     </div>
 
-    <button class="add-button" onclick="openAddLinkModal()">+</button>
-    <button class="profile-button" onclick="openProfileModal()">📷</button>
+    <button class="add-button" onclick="openAddLinkModal()">🔗</button>
+    <button class="profile-button" onclick="openProfileModal()">☰</button>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
