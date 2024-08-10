@@ -1,16 +1,5 @@
 function loadProfile() {
-    const profileName = localStorage.getItem('profileName');
-    const profileBio = localStorage.getItem('profileBio');
 
-    if (profileName && profileBio) {
-        document.getElementById('profileName').innerText = profileName;
-        document.getElementById('profileBio').innerText = profileBio;
-        
-        
-        // Show the glassmorphism card by adding the 'show' class
-        document.getElementById('profileCard').classList.add('show');
-    }
-}
 document.addEventListener('DOMContentLoaded', function () {
     loadLinks();
     loadProfile();
