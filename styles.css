@@ -32,6 +32,13 @@ body {
     max-width: 350px;
     backdrop-filter: blur(10px);
     animation: fadeIn 1s ease-in-out;
+    display: none; /* Card is hidden by default */
+}
+
+/* Show the container when profile is added */
+.container.show {
+    display: block; /* Card is shown when the 'show' class is added */
+
 }
 
 /* Profile Section */
