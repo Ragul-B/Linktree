@@ -32,6 +32,12 @@ body {
     max-width: 350px;
     backdrop-filter: blur(10px);
     animation: fadeIn 1s ease-in-out;
+    display: none;
+}
+
+/* Show the container when profile is added */
+.container.show {
+    display: block;
 }
 
 /* Profile Section */
@@ -80,7 +86,7 @@ p {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    font-size: 14px;
+    font-size: 36px;
     line-height: 70px;
     text-align: center;
     color: #ffffff;
@@ -142,111 +148,39 @@ p {
     padding: 20px;
     width: 80%;
     max-width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
-    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Modal Close Button */
+/* Close Button */
 .modal-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    float: right;
     font-size: 24px;
+    font-weight: bold;
     cursor: pointer;
-    color: #333;
 }
 
-/* Modal Input Fields */
-.modal-content input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #000;
-    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2), inset -4px -4px 8px rgba(255, 255, 255, 0.2);
-}
-
-.modal-content input::placeholder {
-    color: #666;
-}
-
-/* File Upload Button */
-.upload-label {
-    display: none; /* Hide the label */
-}
-
-/* Modal Button */
+/* Modal Buttons */
 .modal-button {
     background: #0073e6;
-    color: #ffffff;
+    color: white;
     border: none;
-    border-radius: 12px;
     padding: 10px 20px;
+    margin-top: 10px;
     cursor: pointer;
+    border-radius: 5px;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.2);
-    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .modal-button:hover {
     background: #005bb5;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
 }
 
-/* Link Item */
-.link-item {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    padding: 15px;
-    margin: 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 0 40px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    color: #333;
-    position: relative;
-}
+.hidden {
+    display: none;
+        }
 
-.link-item a {
-    text-decoration: none;
-    color: #0073e6;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.link-item a:hover {
-    text-decoration: underline;
-}
-
-.link-close {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    color: #e60000;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(0.8);
-    }
-    to {
-        transform: scale(1);
-    }
-}
 /* File Upload Button Styling */
 input[type="file"] {
     border: none;
