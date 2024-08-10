@@ -1,13 +1,105 @@
-document.addEventListener('DOMContentLoaded', function () {
-    loadLinks();
+document.addEventListener('DOMContentLoaded', () => {
     loadProfile();
+    loadLinks();
 });
 
-// Initialize particles.js
+function openAddLinkModal() {
+    document.getElementById('addLinkModal').style.display = 'flex';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+function addLink() {
+    const linkName = document.getElementById('linkName').value;
+    const linkUrl = document.getElementById('linkUrl').value;
+
+    if (linkName && linkUrl) {
+        const links = JSON.parse(localStorage.getItem('links')) || [];
+        links.push({ name: linkName, url: linkUrl });
+        localStorage.setItem('links', JSON.stringify(links));
+        loadLinks();
+        closeModal('addLinkModal');
+    }
+}
+
+function loadLinks() {
+    const linksContainer = document.getElementById('links');
+    const links = JSON.parse(localStorage.getItem('links')) || [];
+    linksContainer.innerHTML = ''; // Clear previous links
+
+    links.forEach((link, index) => {
+        const linkButton = document.createElement('button');
+        linkButton.className = 'link-button';
+        linkButton.innerHTML = `<span>${link.name}</span><span class="remove-link" onclick="removeLink(${index})">&times;</span>`;
+        linkButton.onclick = () => window.open(link.url, '_blank');
+        linksContainer.appendChild(linkButton);
+    });
+
+    if (links.length > 0) {
+        document.getElementById('profileCard').classList.add('show');
+    }
+}
+
+function removeLink(index) {
+    let links = JSON.parse(localStorage.getItem('links'));
+    links.splice(index, 1);
+    localStorage.setItem('links', JSON.stringify(links));
+    loadLinks();
+}
+
+function openProfileModal() {
+    document.getElementById('profileModal').style.display = 'flex';
+}
+
+function updateProfile() {
+    const profileName = document.getElementById('profileNameInput').value;
+    const profileBio = document.getElementById('profileBioInput').value;
+    const profilePic = document.getElementById('profilePic').src;
+
+    if (profileName && profileBio && profilePic) {
+        localStorage.setItem('profileName', profileName);
+        localStorage.setItem('profileBio', profileBio);
+        localStorage.setItem('profilePic', profilePic);
+
+        loadProfile();
+        closeModal('profileModal');
+        document.getElementById('profileButton').style.display = 'none';
+    }
+}
+
+function loadProfile() {
+    const profileName = localStorage.getItem('profileName');
+    const profileBio = localStorage.getItem('profileBio');
+    const profilePic = localStorage.getItem('profilePic');
+
+    if (profileName && profileBio && profilePic) {
+        document.getElementById('profileName').innerText = profileName;
+        document.getElementById('profileBio').innerText = profileBio;
+        const profilePicElement = document.getElementById('profilePic');
+        profilePicElement.src = profilePic;
+        profilePicElement.classList.remove('hidden');
+        document.getElementById('profileCard').classList.add('show');
+    }
+}
+
+function uploadProfileImage() {
+    const file = document.getElementById('profileUploader').files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+        document.getElementById('profilePic').src = reader.result;
+    };
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
+
+// Initialize Particles.js directly
 particlesJS('particles-js', {
     "particles": {
         "number": {
-            "value": 80,
+            "value": 50,
             "density": {
                 "enable": true,
                 "value_area": 800
@@ -89,7 +181,7 @@ particlesJS('particles-js', {
                 "distance": 400,
                 "size": 40,
                 "duration": 2,
-                "opacity": 0.8,
+                "opacity": 8,
                 "speed": 3
             },
             "repulse": {
@@ -106,107 +198,3 @@ particlesJS('particles-js', {
     },
     "retina_detect": true
 });
-
-// Functions to handle modal opening and closing
-function openAddLinkModal() {
-    document.getElementById('addLinkModal').style.display = 'flex';
-}
-
-function openProfileModal() {
-    document.getElementById('profileModal').style.display = 'flex';
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-}
-
-function addLink() {
-    const linkName = document.getElementById('linkName').value;
-    const linkUrl = document.getElementById('linkUrl').value;
-
-    if (linkName && linkUrl) {
-        const linkContainer = document.getElementById('links');
-        const linkElement = document.createElement('div');
-        linkElement.className = 'link-item';
-        linkElement.innerHTML = `
-            <a href="${linkUrl}" target="_blank">${linkName}</a>
-            <span class="link-close" onclick="removeLink(this)">&times;</span>
-        `;
-        linkContainer.appendChild(linkElement);
-
-        saveLink(linkName, linkUrl);
-        closeModal('addLinkModal');
-    }
-}
-
-function removeLink(button) {
-    const linkContainer = document.getElementById('links');
-    button.parentElement.remove();
-    saveLinks(); // Save the updated list after removal
-}
-
-function updateProfile() {
-    const profileName = document.getElementById('profileNameInput').value;
-    const profileBio = document.getElementById('profileBioInput').value;
-
-    if (profileName || profileBio) {
-        document.getElementById('profileName').textContent = profileName;
-        document.getElementById('profileBio').textContent = profileBio;
-        saveProfile();
-        closeModal('profileModal');
-    }
-}
-
-function uploadProfileImage() {
-    const file = document.getElementById('profileUploader').files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            document.getElementById('profilePic').src = e.target.result;
-            document.getElementById('profilePic').classList.remove('hidden');
-        };
-        reader.readAsDataURL(file);
-    }
-}
-
-function saveLink(name, url) {
-    let links = JSON.parse(localStorage.getItem('links')) || [];
-    links.push({ name, url });
-    localStorage.setItem('links', JSON.stringify(links));
-}
-
-function saveLinks() {
-    const linkContainer = document.getElementById('links');
-    const links = Array.from(linkContainer.getElementsByClassName('link-item')).map(linkItem => {
-        const a = linkItem.querySelector('a');
-        return { name: a.textContent, url: a.href };
-    });
-    localStorage.setItem('links', JSON.stringify(links));
-}
-
-function loadLinks() {
-    const links = JSON.parse(localStorage.getItem('links')) || [];
-    const linkContainer = document.getElementById('links');
-    links.forEach(link => {
-        const linkElement = document.createElement('div');
-        linkElement.className = 'link-item';
-        linkElement.innerHTML = `
-            <a href="${link.url}" target="_blank">${link.name}</a>
-            <span class="link-close" onclick="removeLink(this)">&times;</span>
-        `;
-        linkContainer.appendChild(linkElement);
-    });
-}
-
-function saveProfile() {
-    const profileName = document.getElementById('profileNameInput').value;
-    const profileBio = document.getElementById('profileBioInput').value;
-    localStorage.setItem('profile', JSON.stringify({ name: profileName, bio: profileBio }));
-}
-
-function loadProfile() {
-    const profile = JSON.parse(localStorage.getItem('profile')) || { name: '', bio: '' };
-    document.getElementById('profileName').textContent = profile.name;
-    document.getElementById('profileBio').textContent = profile.bio;
-    // Optionally handle profile image here
-    }
