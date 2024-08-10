@@ -1,5 +1,3 @@
-function loadProfile() {
-
 document.addEventListener('DOMContentLoaded', function () {
     loadLinks();
     loadProfile();
@@ -211,4 +209,4 @@ function loadProfile() {
     document.getElementById('profileName').textContent = profile.name;
     document.getElementById('profileBio').textContent = profile.bio;
     // Optionally handle profile image here
-            }
+    }
