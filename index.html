@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linktree-Alike</title>
+    <title>Profile and Links</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div id="particles-js"></div>
 
-    <div class="container">
+    <!-- Glassmorphism card container, hidden initially -->
+    <div id="profileCard" class="container hidden">
         <div class="profile">
             <img id="profilePic" class="profile-pic hidden" src="" alt="Profile Picture">
             <h1 id="profileName">Your Name</h1>
@@ -40,13 +41,13 @@
             <input type="text" id="profileNameInput" placeholder="Name">
             <input type="text" id="profileBioInput" placeholder="Bio">
             <input type="file" id="profileUploader" accept="image/*" onchange="uploadProfileImage()">
-    
+            <label for="profileUploader" class="upload-label">Upload Image</label>
             <button class="modal-button" onclick="updateProfile()">Update Profile</button>
         </div>
     </div>
 
-    <button class="add-button" onclick="openAddLinkModal()">🔗</button>
-    <button class="profile-button" onclick="openProfileModal()">☰</button>
+    <button class="add-button" onclick="openAddLinkModal()">+</button>
+    <button class="profile-button" onclick="openProfileModal()">📷</button>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
