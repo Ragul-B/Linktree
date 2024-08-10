@@ -80,7 +80,7 @@ p {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    font-size: 36px;
+    font-size: 14px;
     line-height: 70px;
     text-align: center;
     color: #ffffff;
@@ -247,7 +247,6 @@ p {
         transform: scale(1);
     }
 }
-
 /* File Upload Button Styling */
 input[type="file"] {
     border: none;
@@ -272,4 +271,4 @@ input[type="file"]:hover {
     background: #005bb5;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3), -2px -2px 6px rgba(255, 255, 255, 0.3);
     transform: scale(1.05);
-}
+    }
