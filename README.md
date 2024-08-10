@@ -22,7 +22,7 @@ This project allows users to manage their profile and links on a single page. Us
 ```bash
 git clone https://github.com/Ragul-B/Linktree.git
 
-cd profile-links-management2.
+cd the File
 
 
  Open the Project
